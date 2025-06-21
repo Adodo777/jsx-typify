@@ -22,17 +22,33 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
     - name: Run tests
       run: |
-        # Test de l'exemple fourni
-        node example/run-example.js
+        # Debug: afficher le répertoire de travail
+        pwd
+        ls -la
+        
+        # Debug: afficher le contenu du dossier example
+        echo "📁 Contenu du dossier example :"
+        ls -la example/
+        
+        # Test de l'exemple fourni (version CI)
+        node example/run-example-ci.js
         
         # Test du CLI
         node bin/jsx-typify.js --help
+        
+    - name: Verify generated files
+      run: |
+        # Debug: afficher le répertoire de travail après les tests
+        pwd
+        echo "📁 Contenu du dossier example après les tests :"
+        ls -la example/
         
         # Vérification que les fichiers générés existent
         if [ -f "example/SimpleComponent.typed.jsx" ]; then
@@ -99,6 +115,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18.x'
+        cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
@@ -140,6 +157,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18.x'
+        cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
