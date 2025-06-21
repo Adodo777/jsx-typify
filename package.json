@@ -1,8 +1,40 @@
 {
+  "name": "jsx-typify",
+  "version": "1.0.0",
+  "description": "Générateur automatique de PropTypes, defaultProps et documentation pour composants React JSX.",
+  "main": "typify/parse.js",
+  "bin": {
+    "jsx-typify": "bin/jsx-typify.js"
+  },
+  "files": [
+    "typify/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Adodo777/jsx-typify.git"
+  },
+  "keywords": [
+    "react",
+    "prop-types",
+    "jsx",
+    "documentation",
+    "defaultProps",
+    "cli",
+    "babel",
+    "automation"
+  ],
+  "author": "Marcos Adodo <marcos.adodo@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@babel/generator": "^7.27.5",
     "@babel/parser": "^7.27.5",
     "@babel/traverse": "^7.27.4",
     "fs-extra": "^11.3.0"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
