@@ -6,6 +6,15 @@
   "bin": {
     "jsx-typify": "bin/jsx-typify.js"
   },
+  "scripts": {
+    "test": "node example/run-example.js",
+    "test:cli": "node bin/jsx-typify.js --help",
+    "lint": "node -c bin/jsx-typify.js && node -c typify/parse.js && node -c typify/parser.js && node -c typify/propTypeGenerator.js && node -c typify/defaultPropGenerator.js && node -c typify/docGenerator.js && node -c typify/typeMapping.js && node -c example/run-example.js",
+    "validate": "npm run lint && npm test",
+    "clean": "rm -rf example/*.typed.jsx example/*.props.*",
+    "prepublishOnly": "npm run validate",
+    "example": "npm run clean && npm test"
+  },
   "files": [
     "typify/",
     "bin/",

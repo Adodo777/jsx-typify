@@ -1,0 +1,59 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run tests before publish
+      run: |
+        # Test rapide avant publication
+        node example/run-example.js
+        node bin/jsx-typify.js --help
+        
+    - name: Publish to NPM
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          ## 🎉 Nouvelle version de jsx-typify
+          
+          ### Changements
+          - Voir les commits depuis la dernière release
+          
+          ### Installation
+          ```bash
+          npm install jsx-typify@latest
+          ```
+          
+          ### Utilisation
+          ```bash
+          npx jsx-typify ./src/MonComposant.jsx
+          ```
+        draft: false
+        prerelease: false 
