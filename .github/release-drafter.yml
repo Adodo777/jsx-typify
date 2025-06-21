@@ -1,0 +1,40 @@
+# Configuration pour les releases automatiques
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+  - title: '📚 Documentation'
+    labels:
+      - 'documentation'
+  - title: '🔧 Maintenance'
+    labels:
+      - 'chore'
+      - 'dependencies'
+template: |
+  ## 🎉 Release v$RESOLVED_VERSION
+
+  $CHANGES
+
+  ### 📦 Installation
+  ```bash
+  npm install jsx-typify@$RESOLVED_VERSION
+  ```
+
+  ### 🚀 Utilisation
+  ```bash
+  npx jsx-typify ./src/MonComposant.jsx
+  ```
+
+  ### 📋 Changelog
+  $CHANGES
+
+  ---
+  *Cette release a été générée automatiquement par [Release Drafter](https://github.com/release-drafter/release-drafter)* 

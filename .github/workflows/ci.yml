@@ -71,14 +71,22 @@ jobs:
           exit 1
         fi
         
+    - name: List generated files
+      run: |
+        echo "📁 Fichiers générés :"
+        ls -la example/*.typed.jsx example/*.props.* 2>/dev/null || echo "Aucun fichier généré trouvé"
+        
     - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()
       with:
         name: test-results-${{ matrix.node-version }}
         path: |
-          example/*.typed.jsx
-          example/*.props.*
+          example/SimpleComponent.typed.jsx
+          example/SimpleComponent.props.md
+          example/SimpleComponent.props.json
+          example/SimpleComponent.props.d.ts
+          example/SimpleComponent.props.jsdoc
         retention-days: 7
 
   lint:

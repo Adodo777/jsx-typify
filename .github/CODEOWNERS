@@ -1,0 +1,21 @@
+# Propriétaires du code pour jsx-typify
+
+# Propriétaire principal du projet
+* @Adodo777
+
+# Modules spécifiques
+/typify/ @Adodo777
+/bin/ @Adodo777
+/example/ @Adodo777
+
+# Configuration GitHub
+/.github/ @Adodo777
+
+# Documentation
+/README.md @Adodo777
+/CONTRIBUTING.md @Adodo777
+/LICENSE @Adodo777
+
+# Configuration npm
+/package.json @Adodo777
+/.npmrc @Adodo777 

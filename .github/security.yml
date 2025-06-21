@@ -1,0 +1,36 @@
+# Politique de sécurité pour jsx-typify
+
+## Politique de divulgation responsable
+
+Nous prenons la sécurité au sérieux. Si vous découvrez une vulnérabilité de sécurité, nous vous demandons de la signaler de manière responsable.
+
+### Comment signaler une vulnérabilité
+
+1. **Ne créez pas d'issue publique** pour les vulnérabilités de sécurité
+2. **Envoyez un email** à marcos.adodo@gmail.com avec le préfixe `[SECURITY]`
+3. **Incluez** :
+   - Description détaillée de la vulnérabilité
+   - Étapes pour reproduire le problème
+   - Impact potentiel
+   - Suggestions de correction (si applicable)
+
+### Ce que nous ferons
+
+- **Réponse sous 48h** à votre signalement
+- **Investigation** de la vulnérabilité
+- **Correction** dans les plus brefs délais
+- **Publication** d'un correctif de sécurité
+- **Reconnaissance** de votre contribution (si vous le souhaitez)
+
+### Types de vulnérabilités
+
+Nous recherchons activement :
+- Injections de code
+- Exécution de code arbitraire
+- Accès non autorisé aux fichiers
+- Vulnérabilités dans les dépendances
+- Problèmes de validation d'entrée
+
+### Récompenses
+
+Bien que nous ne puissions pas offrir de récompenses monétaires, nous reconnaîtrons publiquement les chercheurs de sécurité qui nous aident à améliorer la sécurité de jsx-typify. 
